@@ -1,21 +1,18 @@
 import React from 'react';
 
-const ListItem = ({ num, isImportant = false }) => {
+const ListItem = ({ article, isCompleted }) => {
 
-   // props.isImportant = props.num % 2 ? true : false
-
-   isImportant = num % 2 ? true : false;
-
-   const style = {
-      color: isImportant ? 'tomato' : 'gray'
+   const todoItemStyle = {
+      textDecoration: isCompleted ? 'lineThrough' : 'none',
+      color: isCompleted ? 'lightGray' : 'black'
    }
 
-   let isOdd = (num % 2) ? 'odd' : 'even';
-
    return (
-      <span style={style}>{`${num} is ${isOdd} item`}</span>
-
-   )
+      <span
+         className={isCompleted ? 'todo-item-completted' : null}>
+         {article + ". is completed: " + isCompleted}
+      </span>
+   );
 }
 
 export default ListItem;
